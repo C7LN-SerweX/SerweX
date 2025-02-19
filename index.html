@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep Minecraft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .product {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            width: 250px;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .product p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .buy-btn {
+            background-color: #f39c12;
+            border: none;
+            color: white;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .buy-btn:hover {
+            background-color: #e67e22;
+        }
+
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none; /* Początkowo ukryte */
+        }
+
+        .info h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .info p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Produkt 1 -->
+        <div class="product">
+            <img src="https://cdn.discordapp.com/attachments/1339939955916542043/1341846810934775818/aternos.png?ex=67b77bba&is=67b62a3a&hm=feb0bac83e44cb3c55be044c99859e399950a38d11d55e948ae6c61206431596" alt="Produkt 1">
+            <h3>Dowolny Tryb Aternos - 2 PLN</h3>
+            <p>Bardzo Tanie! Uwagi: Na Aternosie Robimy Tylko 1 Trybowe Serwery. <br> Po Większe, Kup Inny Plan</p>
+            <button class="buy-btn" onclick="togglePaymentInfo()">Kup teraz</button>
+        </div>
+
+        <!-- Produkt 2 -->
+        <div class="product">
+            <img src="https://cdn.discordapp.com/attachments/1339939955916542043/1341846982423085108/titanaxe.png?ex=67b77be2&is=67b62a62&hm=b248cbea5ebf84f2df20a597a0a324257c46eeebb333246f4ded34142b39d7ab" alt="Produkt 2">
+            <h3>Dowolny Tryb TitanAxe - 60 PLN</h3>
+            <p>Świetny Hosting Jak Siekiera! <br>Uwagi: Na Stronie Kup Tylko MAX 2 Tryby. Więcej, Kup Na dc.gg/serwex</p>
+            <button class="buy-btn" onclick="togglePaymentInfo()">Kup teraz</button>
+        </div>
+
+        <!-- Produkt 3 -->
+        <div class="product">
+            <img src="https://cdn.discordapp.com/attachments/1339939955916542043/1341847206503907459/icehost.jpg?ex=67b77c18&is=67b62a98&hm=04c5c13f6907b0db91375a7e403f1174768570a83a8a4c9293b8f9b3bac65181" alt="Produkt 3">
+            <h3>Dowolny Tryb IceHost - 115 PLN</h3>
+            <p>Najlepszy Hosting Który Ma Takie Serwery Jak np. ACMC! <br>Uwagi: Na Stronie Kup Tylko MAX 2 Tryby. Więcej, Kup Na dc.gg/serwex</p>
+            <button class="buy-btn" onclick="togglePaymentInfo()">Kup teraz</button>
+        </div>
+        <!-- Produkt 4 -->
+        <div class="product">
+            <img src="https://cdn.discordapp.com/attachments/1339939955916542043/1341851750608535563/ovh.png?ex=67b78053&is=67b62ed3&hm=73f346961fe4978d50c0c09295352cff88cc82f18b96beb272118a65cfa1907d&" alt="Produkt 4">
+            <h3>Domena .PL Do Dowolnego Hostingu - 20 PLN</h3>
+            <p>Domena .PL Z Hostingu OVH Cloud!</p>
+            <button class="buy-btn" onclick="togglePaymentInfo()">Kup teraz</button>
+        </div>
+    </div>
+
+
+    <!-- Informacje o płatności (początkowo ukryte) -->
+    <div class="info" id="payment-info">
+        <h2>Formy Płatności: PayPal</h2>
+        <p>Aby Kupić: Przelej Kwotę Zakupu Na PayPal: <strong>discordziktylko@gmail.com</strong></p>
+        <p>Następnie, Otwórz Ticketa Na Discordzie: <a href="https://dc.gg/serwex" target="_blank">dc.gg/serwex</a></p>
+    </div>
+
+    <script>
+        // Funkcja przełączająca widoczność sekcji z informacjami o płatności
+        function togglePaymentInfo() {
+            var infoSection = document.getElementById('payment-info');
+            // Jeśli sekcja jest ukryta, pokazujemy ją, jeśli jest widoczna, ukrywamy
+            if (infoSection.style.display === 'none' || infoSection.style.display === '') {
+                infoSection.style.display = 'block';
+            } else {
+                infoSection.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
